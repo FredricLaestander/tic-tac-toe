@@ -1,9 +1,27 @@
 import { StyleSheet, Text, View } from "react-native";
+import { useGame } from "../game";
 
 const Home = () => {
+  const { board, activePlayer, changeTurn, placeSymbol } = useGame();
   return (
     <View>
-      <Text>Home</Text>
+      <View>
+        <View></View>
+        <View></View>
+        <View></View>
+      </View>
+
+      <View>
+        <View></View>
+        <View></View>
+        <View></View>
+      </View>
+
+      <View>
+        <View></View>
+        <View></View>
+        <View></View>
+      </View>
     </View>
   );
 };

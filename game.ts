@@ -2,13 +2,6 @@ import { useState } from "react";
 
 const emptyBoard = ["", "", "", "", "", "", "", "", ""];
 
-const [boardState, setBoardState] = useState(emptyBoard);
-const [activePlayer, setActivePlayer] = useState("player 1");
-
-const changeTurn = () => {
-  setActivePlayer(activePlayer === "player 1" ? "player 2" : "player 1");
-};
-
 const winPatterns = [
   [0, 1, 2],
   [3, 4, 5],
@@ -22,12 +15,17 @@ const winPatterns = [
   [2, 4, 6],
 ];
 
-const placeSymbol = ({
-  index,
-}: {
-  board: string[];
-  activePlayer: string;
-  index: number;
-}) => {
-  if (boardState[index] !== "") return;
+export const useGame = () => {
+  const [board, setBoard] = useState(emptyBoard);
+  const [activePlayer, setActivePlayer] = useState("player 1");
+
+  const changeTurn = () => {
+    setActivePlayer(activePlayer === "player 1" ? "player 2" : "player 1");
+  };
+
+  const placeSymbol = (index: number) => {
+    if (board[index] !== "") return;
+  };
+
+  return { board, activePlayer, changeTurn, placeSymbol };
 };
