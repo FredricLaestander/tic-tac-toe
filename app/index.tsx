@@ -1,31 +1,21 @@
-import { StyleSheet, Text, View } from "react-native";
-import { useGame } from "../game";
+import { StyleSheet, View } from "react-native";
+import { Table } from "../components/table";
 
 const Home = () => {
-  const { board, activePlayer, changeTurn, placeSymbol } = useGame();
   return (
-    <View>
-      <View>
-        <View></View>
-        <View></View>
-        <View></View>
-      </View>
-
-      <View>
-        <View></View>
-        <View></View>
-        <View></View>
-      </View>
-
-      <View>
-        <View></View>
-        <View></View>
-        <View></View>
-      </View>
+    <View style={styles.container}>
+      <Table />
     </View>
   );
 };
 
 export default Home;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});

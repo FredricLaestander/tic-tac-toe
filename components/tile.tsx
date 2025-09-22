@@ -1,27 +1,30 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Symbol } from "../game";
 
 export const Tile = ({
-  playTurn,
-  contain = "",
+  onPress,
+  symbol = "",
 }: {
-  playTurn: () => void;
-  contain: "" | "O" | "X";
+  onPress: () => void;
+  symbol: Symbol;
 }) => {
   return (
-    <Pressable onPress={playTurn} style={styles.view}>
-      {contain}
+    <Pressable onPress={onPress} style={styles.view}>
+      <Text>{symbol}</Text>
     </Pressable>
   );
 };
 
 const styles = StyleSheet.create({
   view: {
-    width: 48,
-    height: 48,
-    backgroundColor: "#d6d6d6",
     flex: 1,
+    aspectRatio: 1 / 1,
+    backgroundColor: "#d6d6d6",
     justifyContent: "center",
     alignItems: "center",
     padding: 8,
+    borderColor: "#333",
+    borderRadius: 16,
+    borderWidth: 2,
   },
 });
